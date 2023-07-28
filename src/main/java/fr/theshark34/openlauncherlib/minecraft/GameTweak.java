@@ -62,6 +62,29 @@ public abstract class GameTweak
     };
 
     /**
+     * The Fabric GameTweak
+     */
+
+    public static final GameTweak FABRIC = new GameTweak() {
+        @Override
+        public String getName() {
+            return "Fabric Tweak";
+        }
+
+        @Override
+        public String getTweakClass(GameInfos infos) {
+            if (infos.getGameVersion().getGameType().equals(GameType.V1_19_HIGHER_FABRIC)) {
+                return "net.fabricmc.loader.launch.knot.KnotClientTweaker";
+            } else {
+                // Remplacez la ligne suivante par la classe FabricTweaker appropriée pour les versions 1.19 et 1.19.1 de Fabric.
+                // Assurez-vous d'avoir la bonne importation pour la classe FabricTweaker.
+                return "net.fabricmc.loader.launch.knot.KnotClientTweaker";
+            }
+        }
+    };
+
+
+    /**
      * The Optifine GameTweak
      */
     public static final GameTweak OPTIFINE = new GameTweak()
@@ -99,6 +122,7 @@ public abstract class GameTweak
                 return "shadersmodcore.loading.SMCTweaker";
         }
     };
+
 
     /**
      * Return the name of the tweak
